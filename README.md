@@ -14,9 +14,8 @@ PostgreSQL is not controlled by any corporation or other private entity and the 
 
 // To view all coloumns in a Table
 ``` sql
-SELECT * FROM tablename
+SELECT * FROM tablename;
 ```
-
 
 //to view distinct elements in a column.
 ```sql
@@ -26,11 +25,37 @@ SELECT Distinct coloumnName FROM TableName;
 ```sql
 SELECT coloumn1, coloumn2, coloumn3 
 FROM table_name
-WHERE coloumn3->> 'en' = 'Moscow'
+WHERE coloumn3->> 'en' = 'Moscow';
 ```
 
 //to view elements in all columns in a table based on where condition.
 ```sql
 SELECT * FROM TableName
-WHERE coloumn1 > 2000 
+WHERE coloumn1 > 2000 ;
  ```
+
+ //to view elements in all columns in a table based on where condition that both conditions should be true.
+```sql
+SELECT * FROM TableName
+WHERE coloumn1 > 2000 and coloumn2 = 'Bussiness';
+ ```
+
+// The LIKE operator in SQL is used with the WHERE clause to get a result set that matches the given string pattern.
+
+
+``` sql
+SELECT * FROM table_name
+WHERE column1 ->> 'en' like 'Airbus%';
+```
+``` sql
+SELECT * FROM table_name
+WHERE column1 ->> 'en' like '%200%';
+```
+> Although the LIKE operator behaves similar to the = operator in this example, they are not the same. The = operator is used to check equality whereas LIKE operator is used to match string patterns only.
+
+// invert the working of LIKE operator and ignore the result set matching with the given string pattern by using the NOT operator.
+
+``` sql
+SELECT * FROM table_name
+WHERE column1 ->> 'en' NOT like 'Airbus%';
+```
